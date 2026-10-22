@@ -71,7 +71,7 @@ export const NFLogo: React.FC<NFLogoProps> = ({
         )}
       </div>
 
-      {/* Typography: "NF" + "Venture Studio" + "Naree Care Foundation" */}
+      {/* Typography: "NF" + "Venture Studio" + "Naree Foundation" */}
       {showText && (
         <div className="flex flex-col justify-center min-w-0">
           <div className="flex items-baseline gap-1 sm:gap-1.5 leading-none flex-wrap">
@@ -94,14 +94,14 @@ export const NFLogo: React.FC<NFLogoProps> = ({
             </span>
           </div>
 
-          {/* Naree Care Foundation Subtitle */}
+          {/* Naree Foundation Subtitle */}
           {showSubtitle && (
             <span
               className={`font-semibold tracking-wider uppercase mt-0.5 sm:mt-1 truncate ${current.subText} ${
                 variant === 'light' ? 'text-[#D9A72E]' : 'text-[#D9A72E]'
               }`}
             >
-              Naree Care Foundation
+              Naree Foundation
             </span>
           )}
         </div>

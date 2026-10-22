@@ -48,6 +48,7 @@ function App() {
       <Routes>
         {/* NF Venture Studio Primary Website */}
         <Route path="/" element={<NFVentureStudioPage />} />
+        <Route path="/home" element={<NFVentureStudioPage />} />
         <Route path="/nf-venture-studio" element={<NFVentureStudioPage />} />
         <Route path="/studio" element={<NFVentureStudioPage />} />
         <Route path="/about" element={<NFAboutPage />} />

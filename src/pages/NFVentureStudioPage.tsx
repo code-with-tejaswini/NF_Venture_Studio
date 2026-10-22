@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { NFNavbar } from '../components/nf/NFNavbar';
 import { NFHeroSection } from '../components/nf/NFHeroSection';
 import { NFAboutIntroSection } from '../components/nf/NFAboutIntroSection';
-import { NFSupportSection } from '../components/nf/NFSupportSection';
 import { NFIncubationFrameworkSection } from '../components/nf/NFIncubationFrameworkSection';
 import { NFTracksSection } from '../components/nf/NFTracksSection';
 import { NFArchitectureAndProcess } from '../components/nf/NFArchitectureAndProcess';
@@ -13,7 +12,6 @@ import { NFWhyPartnerSection } from '../components/nf/NFWhyPartnerSection';
 import { NFFooter } from '../components/nf/NFFooter';
 import { NFApplicationModal } from '../components/nf/NFApplicationModal';
 import { NFLabModal } from '../components/nf/NFLabModal';
-import { NFMarquee } from '../components/nf/NFMarquee';
 import { useScrollReveal, useCountUp } from '../hooks/useScrollReveal';
 import { useNFTheme } from '../hooks/useNFTheme';
 
@@ -105,23 +103,13 @@ export const NFVentureStudioPage: React.FC = () => {
         {/* 1. Hero Section */}
         <NFHeroSection onOpenApplication={handleOpenApplication} isDark={isDark} />
 
-        {/* Dynamic Partner Marquee Ticker */}
-        <NFMarquee isDark={isDark} />
-
         {/* 2. About NFVS Storytelling Section */}
         <NFAboutIntroSection isDark={isDark} />
 
         {/* 3. Incubation Journey: Visual Process Flow & 2-Stage Framework */}
         <NFIncubationFrameworkSection isDark={isDark} />
 
-        {/* 4. What NFVS Offers: Support, Prototyping Labs, Mentorship & Grants */}
-        <NFSupportSection
-          onOpenLabDetails={handleOpenLab}
-          onOpenApplication={handleOpenApplication}
-          isDark={isDark}
-        />
-
-        {/* 5. Tracks and Programs: 3 Specialized Pathways */}
+        {/* 4. Tracks and Programs: 3 Specialized Pathways */}
         <NFTracksSection onOpenApplication={handleOpenApplication} isDark={isDark} />
 
         {/* 6. Campus Architecture & 12-Month Rollout Roadmap */}

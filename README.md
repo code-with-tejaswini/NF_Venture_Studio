@@ -1,4 +1,4 @@
-﻿# NF Venture Studio Website (NFVS)
+# NF Venture Studio Website (NFVS)
 
 > High-performance venture studio platform and institutional incubation portal connecting students, startups, MSMEs, and academia.
 
@@ -20,7 +20,7 @@ NF Venture Studio (NCF) transforms early-stage ideas and research into scalable 
   - Track C: MSME & Institutional Enterprise Projects
 - **Interactive Application & Lab Exploration Modals**: Direct intake form and detailed lab infrastructure specs.
 - **Institutional Accreditation Matrix**: Mapping outcomes directly to NAAC, NBA, and NIRF criteria.
-- **Contact & Helpline**: Direct contact integration for Ashok Patil (Nigdi, Pune) at `8379879846` / `9209112577`.
+- **Contact & Helpline**: Direct contact integration for Ashok Patil (Nigdi, Pune) at `+91 92091 12577`.
 
 ## 🛠️ Tech Stack
 

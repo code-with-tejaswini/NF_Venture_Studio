@@ -43,8 +43,7 @@
     color: #F8FAFC;
   }
 
-  /* Justified text alignment for narrative paragraphs and descriptions */
-  p, .text-justify-interword {
+  .text-justify-interword {
     text-align: justify;
     text-justify: inter-word;
   }

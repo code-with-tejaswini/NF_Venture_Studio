@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Lightbulb,
-  Rocket,
-  Compass,
-  Layers,
-  TrendingUp,
-  CheckCircle2,
-  Clock,
-  Sparkles,
-  ChevronRight,
-  ChevronLeft,
-  Check,
+  FlaskConical,
   Target,
+  LayoutTemplate,
   Users,
-  Cpu,
-  Building2,
-  ShieldCheck,
+  CheckCircle,
+  Flag,
+  ClipboardList,
+  Landmark,
+  Coins,
+  FileText,
+  Handshake,
+  Search,
+  Rocket,
+  TrendingUp,
   ArrowRight,
+  ArrowDown,
 } from 'lucide-react';
 
 interface NFIncubationFrameworkSectionProps {
@@ -26,551 +26,365 @@ interface NFIncubationFrameworkSectionProps {
 export const NFIncubationFrameworkSection: React.FC<NFIncubationFrameworkSectionProps> = ({
   isDark = false,
 }) => {
-  const [selectedStep, setSelectedStep] = useState<number>(0);
-  const [activeEcosystemPillar, setActiveEcosystemPillar] = useState<'founders' | 'mentorship' | 'resources' | 'infrastructure'>('founders');
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-  const journeySteps = [
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const preIncubationPoints = [
+    { text: 'Idea identification and problem discovery', icon: Lightbulb },
+    { text: 'Solution development and validation', icon: FlaskConical },
+    { text: 'Understanding market needs', icon: Target },
+    { text: 'Business model exploration', icon: LayoutTemplate },
+    { text: 'Entrepreneurial mindset and team building', icon: Users },
+    { text: 'Refining the idea into a viable concept', icon: CheckCircle },
+  ];
+
+  const incubationPoints = [
+    { text: 'Startup formation and establishment', icon: Flag },
+    { text: 'Business planning and strategy', icon: ClipboardList },
+    { text: 'Guidance on government schemes', icon: Landmark },
+    { text: 'Support in grants and funding opportunities', icon: Coins },
+    { text: 'Startup profile and brochure development', icon: FileText },
+    { text: 'Mentoring, networking and growth support', icon: Handshake },
+  ];
+
+  const progressSteps = [
     {
       step: '01',
-      number: 1,
-      phase: 'Idea',
-      title: 'Problem Discovery',
-      stageBadge: 'Stage 1 · Ideation',
-      duration: 'Weeks 1–4',
-      shortDesc: 'Screening academic research and market problems into structured hypotheses with real user persona validation.',
+      prefix: 'Idea',
+      text: 'Identify a real problem or opportunity',
       icon: Lightbulb,
-      tagline: 'Identifying genuine institutional & market pain points',
-      outputMetric: 'Validated Problem-Solution Hypothesis',
-      color: '#D9A72E',
-      deliverables: [
-        'Validated problem-solution hypothesis',
-        'User interview logs & persona maps',
-        'Competitive landscape benchmark',
-      ],
+      color: 'gold',
     },
     {
       step: '02',
-      number: 2,
-      phase: 'Validation',
-      title: 'Proof-of-Concept (PoC)',
-      stageBadge: 'Stage 1 · Pre-Incubation',
-      duration: 'Months 2–3',
-      shortDesc: 'Engineering functional working prototypes on campus test benches (AI, IoT, Robotics) and prior-art patent screening.',
-      icon: Compass,
-      tagline: 'Prototyping technical feasibility in university labs',
-      outputMetric: 'Working Hardware & Software Lab MVP',
-      color: '#38BDF8',
-      deliverables: [
-        'Working hardware/software prototype',
-        'Technical benchmark test report',
-        'Patentability screening assessment',
-      ],
+      prefix: 'Concept',
+      text: 'Refine and validate the solution',
+      icon: Search,
+      color: 'gold',
     },
     {
       step: '03',
-      number: 3,
-      phase: 'Incubation',
-      title: 'Business Architecture',
-      stageBadge: 'Stage 2 · Structuring',
-      duration: 'Months 4–5',
-      shortDesc: 'Incorporating statutory company entities (Pvt Ltd / LLP), defining founder equity splits, and ratifying AICTE-NISP IP charters.',
-      icon: Layers,
-      tagline: 'Designing unit economics & statutory company incorporation',
-      outputMetric: 'Statutory Entity & Ratified IP Charter',
-      color: '#34D399',
-      deliverables: [
-        'Pvt Ltd / LLP incorporation certificate',
-        'AICTE-NISP compliant IP charter',
-        'Financial unit economics model (BMC)',
-      ],
+      prefix: 'Develop',
+      text: 'Build the business model and plan',
+      icon: Users,
+      color: 'navy',
     },
     {
       step: '04',
-      number: 4,
-      phase: 'Launch',
-      title: 'Incubation Launch',
-      stageBadge: 'Stage 2 · Incubation',
-      duration: 'Months 6–9',
-      shortDesc: 'Deploying dedicated campus makerspace desks, weekly 1-on-1 CXO sprint reviews, and institutional pitch decks.',
+      prefix: 'Launch',
+      text: 'Convert into a startup',
       icon: Rocket,
-      tagline: 'Dedicated campus workspace & CXO operator mentorship',
-      outputMetric: 'Turnkey Desks & CXO Sprint Reviews',
-      color: '#A78BFA',
-      deliverables: [
-        'Dedicated campus incubation desk',
-        'Weekly mentor sprint review meetings',
-        'Investor pitch deck & venture dossier',
-      ],
+      color: 'blue',
     },
     {
       step: '05',
-      number: 5,
-      phase: 'Growth',
-      title: 'Market Scale & Grants',
-      stageBadge: 'Stage 2 · Growth',
-      duration: 'Months 10–12+',
-      shortDesc: 'Securing non-dilutive central grants (NIDHI, BIRAC, MSME), participating in demo days, and executing corporate pilots.',
+      prefix: 'Grow',
+      text: 'Scale with support and opportunities',
       icon: TrendingUp,
-      tagline: 'Non-dilutive grants, investor demo days & enterprise pilots',
-      outputMetric: '₹3Cr+ Grant Pipeline & Enterprise Pilots',
-      color: '#F472B6',
-      deliverables: [
-        'Government grant applications (NIDHI/BIRAC)',
-        'Angel demo day presentation showcase',
-        'Commercial enterprise pilot agreements',
-      ],
+      color: 'blue',
     },
   ];
-
-  const current = journeySteps[selectedStep];
-
-  const ecosystemPillars = [
-    {
-      id: 'founders' as const,
-      label: 'Founders',
-      title: 'Student Innovators & Faculty Creators',
-      icon: Users,
-      badge: 'Talent Empowerment',
-      stat: '100% Inventor IP',
-      color: 'text-amber-500',
-      bgColor: 'bg-amber-500/10',
-      borderColor: 'border-amber-400/30',
-      desc: 'Structured equity split frameworks, academic duty-leave policies for founders, and co-building support from day zero.',
-      points: [
-        'AICTE-NISP compliant cap-table structures protecting faculty and student equity',
-        'Institutional credit waiver and academic examination flexibility for incubatees',
-        'Interdisciplinary team formation matching engineering with management talent',
-      ],
-    },
-    {
-      id: 'mentorship' as const,
-      label: 'Mentorship',
-      title: '50+ CXO Operators & Technical Architects',
-      icon: Compass,
-      badge: 'Operator Network',
-      stat: 'Weekly 1-on-1 Sprints',
-      color: 'text-sky-500',
-      bgColor: 'bg-sky-500/10',
-      borderColor: 'border-sky-400/30',
-      desc: 'Hands-on operator guidance from seasoned founders who have scaled hardware, deep-tech, and enterprise software companies.',
-      points: [
-        'Weekly sprint cadence reviewing technical milestones and commercial unit economics',
-        'Direct access to industry CTOs for code review, PCB design validation, and QA',
-        'Masterclasses on go-to-market execution, B2B pricing, and corporate procurement',
-      ],
-    },
-    {
-      id: 'resources' as const,
-      label: 'Resources',
-      title: 'Non-Dilutive Capital & Legal Infrastructure',
-      icon: Layers,
-      badge: 'Capital Syndication',
-      stat: '₹3Cr+ Grant Pipeline',
-      color: 'text-emerald-500',
-      bgColor: 'bg-emerald-500/10',
-      borderColor: 'border-emerald-400/30',
-      desc: 'Syndicating non-dilutive central government grants, seed funding syndicates, and statutory compliance assistance.',
-      points: [
-        'Turnkey application support for NIDHI-EIR, NIDHI-PRAYAS, and BIRAC BIG grants',
-        'Statutory company incorporation (Pvt Ltd / LLP), GST, DPIIT startup recognition',
-        'Technology Transfer Office (TTO) support for provisional & complete patent drafting',
-      ],
-    },
-    {
-      id: 'infrastructure' as const,
-      label: 'Infrastructure',
-      title: 'Turnkey Campus Makerspaces & Testing Labs',
-      icon: Cpu,
-      badge: 'Hardware Testbeds',
-      stat: '4 Lab Domains',
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-500/10',
-      borderColor: 'border-purple-400/30',
-      desc: 'Furnished 500–2,000 sq. ft. campus incubation facilities equipped with specialized lab bays and IoT/Robotics equipment.',
-      points: [
-        'AI Compute Workstations (RTX/A100 instances, Jetson Orin edge accelerators)',
-        'Rapid physical prototyping suite with multi-axis 3D printers and CNC tools',
-        'Cloud-based incubation ERP for attendance, milestone tracking, and telemetry',
-      ],
-    },
-  ];
-
-  const currentEcosystem = ecosystemPillars.find((p) => p.id === activeEcosystemPillar) || ecosystemPillars[0];
-  const CurrentEcosystemIcon = currentEcosystem.icon;
-
-  const handlePrev = () => {
-    setSelectedStep((prev) => (prev - 1 + journeySteps.length) % journeySteps.length);
-  };
-
-  const handleNext = () => {
-    setSelectedStep((prev) => (prev + 1) % journeySteps.length);
-  };
 
   return (
     <section
-      id="incubation-framework"
-      className={`py-12 sm:py-16 border-b transition-colors duration-300 ${
+      ref={sectionRef}
+      id="from-idea-to-startup"
+      className={`py-16 sm:py-20 border-b transition-colors duration-300 ${
         isDark ? 'bg-[#0B1F3A] border-slate-800 text-white' : 'bg-[#F7F9FC] border-[#DCE3EC] text-[#172334]'
       }`}
     >
-      <div className="section-shell space-y-10 sm:space-y-12">
-        
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .animated-bullet,
+          .bullet-badge,
+          .bullet-badge-icon,
+          .step-card {
+            transition: none !important;
+            transform: none !important;
+            opacity: 1 !important;
+          }
+        }
+      `}</style>
+
+      <div className="section-shell space-y-12 sm:space-y-14">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-2.5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border bg-[#EAF1F9] dark:bg-slate-800 text-[#123B73] dark:text-sky-300 border-[#DCE3EC] dark:border-slate-700">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D9A72E]" />
-            <span className="uppercase tracking-wider font-bold">Startup Journey &amp; Ecosystem</span>
-          </div>
-
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <span className="inline-block text-xs font-mono font-bold uppercase tracking-wider text-[#D9A826]">
+            FROM IDEA TO STARTUP
+          </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-            The Startup Pathway: <span className="text-[#D9A72E]">Idea → Validation → Growth</span>
+            Our Two-Stage Incubation Support
           </h2>
-
-          <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-            A stage-gated institutional roadmap paired with an integrated ecosystem of founders, mentors, capital resources, and lab infrastructure.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+            NF Venture Studio supports innovators at every stage of their journey, from exploring an idea to building a scalable and sustainable startup.
           </p>
         </div>
 
-        {/* 1. VISUAL ANIMATED PATHWAY (Idea → Validation → Incubation → Launch → Growth) */}
-        <div className="space-y-6">
-          <div className="relative p-2 sm:p-4 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-xs">
-            
-            {/* Pathway Breadcrumb Header */}
-            <div className="hidden sm:flex items-center justify-between px-3 py-2 border-b border-slate-200 dark:border-slate-800 text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-              <span>Stage-Gated Venture Pipeline</span>
-              <span className="flex items-center gap-1.5 text-[#D9A72E]">
-                <span className="w-2 h-2 rounded-full bg-[#D9A72E] animate-ping" />
-                Active Milestone: {current.phase}
-              </span>
-            </div>
+        {/* Two Equal Cards */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          {/* Connector arrow between cards on desktop */}
+          <div
+            className={`hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full items-center justify-center border shadow-md pointer-events-none transition-colors duration-300 ${
+              isDark
+                ? 'bg-slate-900 border-slate-700 text-[#D9A826]'
+                : 'bg-white border-slate-200 text-[#123B73]'
+            }`}
+            aria-hidden="true"
+          >
+            <ArrowRight className="w-5 h-5" />
+          </div>
 
-            {/* Pathway Animated Highway Line */}
-            <div className="relative pt-3 pb-2">
-              
-              {/* Animated Connecting Pathway Line */}
-              <div className="hidden lg:block absolute top-[46px] left-[8%] right-[8%] h-1 z-0">
-                <svg className="w-full h-4 overflow-visible" preserveAspectRatio="none">
-                  <line
-                    x1="0"
-                    y1="2"
-                    x2="100%"
-                    y2="2"
-                    stroke={isDark ? '#334155' : '#CBD5E1'}
-                    strokeWidth="2"
-                    strokeDasharray="4 4"
-                  />
-                  {/* Dynamic Glowing Energy Line */}
-                  <line
-                    x1="0"
-                    y1="2"
-                    x2={`${(selectedStep / 4) * 100}%`}
-                    y2="2"
-                    stroke="#D9A72E"
-                    strokeWidth="3"
-                    className="transition-all duration-500 ease-out"
-                  />
-                </svg>
+          {/* CARD 01: PRE-INCUBATION */}
+          <div
+            className={`p-7 sm:p-8 rounded-2xl border flex flex-col justify-between transition-all duration-300 shadow-xs hover:shadow-md ${
+              isDark
+                ? 'bg-slate-900/90 border-slate-700/80 hover:border-slate-600 text-slate-100'
+                : 'bg-white border-[#DCE3EC] hover:border-slate-300 text-slate-900'
+            }`}
+          >
+            <div className="space-y-6">
+              <div className={`flex items-start justify-between gap-4 border-b pb-5 ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+                    PRE-INCUBATION
+                  </h3>
+                  <p className={`text-sm font-semibold mt-1 ${isDark ? 'text-[#D9A826]' : 'text-[#B45309]'}`}>
+                    Idea to Ideology for Startup
+                  </p>
+                </div>
+                <span className="text-4xl sm:text-5xl font-black font-mono text-[#D9A826] select-none leading-none">
+                  01
+                </span>
               </div>
 
-              {/* 5 Milestone Step Nodes */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 relative z-10">
-                {journeySteps.map((step, idx) => {
-                  const Icon = step.icon;
-                  const isSelected = selectedStep === idx;
-                  const isPast = idx < selectedStep;
-
+              <ul className="space-y-2 pt-1">
+                {preIncubationPoints.map((point, idx) => {
+                  const Icon = point.icon;
                   return (
-                    <button
-                      key={step.step}
-                      type="button"
-                      onClick={() => setSelectedStep(idx)}
-                      className={`group relative text-left p-3.5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${
-                        isSelected
-                          ? 'bg-[#123B73] text-white border-[#123B73] shadow-lg ring-2 ring-[#D9A72E]/70 -translate-y-1'
-                          : isDark
-                          ? 'bg-slate-900/90 border-slate-700/80 text-slate-100 hover:bg-slate-800 hover:border-slate-600'
-                          : 'bg-white border-[#DCE3EC] text-slate-900 hover:bg-slate-50 hover:border-slate-300 shadow-2xs'
+                    <li
+                      key={idx}
+                      className={`animated-bullet group flex items-start gap-4 p-2 rounded-xl transition-all duration-300 hover:translate-x-1.5 ${
+                        isDark ? 'hover:bg-slate-800/40' : 'hover:bg-slate-50'
+                      } ${
+                        isVisible
+                          ? 'opacity-100 translate-x-0'
+                          : 'opacity-0 -translate-x-4'
                       }`}
+                      style={{
+                        transitionDelay: isVisible ? `${idx * 80 + 100}ms` : '0ms',
+                      }}
                     >
-                      {/* Top Header: Phase Badge & Node Icon */}
-                      <div className="flex items-center justify-between mb-2">
-                        <span
-                          className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                            isSelected
-                              ? 'bg-[#D9A72E] text-slate-950'
-                              : isPast
-                              ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
-                          }`}
-                        >
-                          {step.phase}
-                        </span>
-
-                        <div
-                          className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all ${
-                            isSelected
-                              ? 'bg-white/20 text-[#D9A72E] scale-110'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:text-[#123B73]'
-                          }`}
-                        >
-                          <Icon className="w-3.5 h-3.5" />
-                        </div>
+                      <div
+                        className="bullet-badge w-10 h-10 shrink-0 rounded-lg rotate-45 flex items-center justify-center bg-[#D9A826] shadow-[0_0_12px_rgba(217,168,38,0.35)] transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:rotate-[55deg] group-hover:shadow-[0_0_18px_rgba(217,168,38,0.6)]"
+                        aria-hidden="true"
+                      >
+                        <Icon className="bullet-badge-icon w-5 h-5 text-[#0B1F3A] -rotate-45 transition-transform duration-300 group-hover:-rotate-[55deg] stroke-[2.2]" />
                       </div>
-
-                      {/* Step Title & Duration */}
-                      <div className="space-y-0.5">
-                        <h3 className="text-xs sm:text-sm font-extrabold leading-tight">
-                          {step.title}
-                        </h3>
-                        <div
-                          className={`text-[10px] font-mono font-semibold ${
-                            isSelected ? 'text-[#D9A72E]' : 'text-slate-500 dark:text-slate-400'
-                          }`}
-                        >
-                          {step.duration}
-                        </div>
-                      </div>
-
-                      {/* Indicator pill */}
-                      <div className="mt-2 pt-2 border-t border-slate-200/40 dark:border-slate-700/40 flex items-center justify-between text-[10px] font-mono">
-                        <span className={isSelected ? 'text-white/90 font-bold' : 'text-slate-400'}>
-                          0{idx + 1} / 05
-                        </span>
-                        {isSelected && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#D9A72E] animate-pulse" />
-                        )}
-                      </div>
-                    </button>
+                      <span className={`text-sm sm:text-base font-medium leading-relaxed pt-1.5 transition-colors duration-200 ${
+                        isDark ? 'text-slate-200 group-hover:text-white' : 'text-slate-700 group-hover:text-slate-950'
+                      }`}>
+                        {point.text}
+                      </span>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
+          </div>
 
-            {/* Selected Milestone Focus Detail Card */}
-            <div
-              className={`mt-4 p-5 sm:p-7 rounded-2xl border transition-all duration-300 ${
-                isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-[#DCE3EC] text-slate-900 shadow-sm'
-              }`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                
-                {/* Left Area: Milestone Overview */}
-                <div className="lg:col-span-7 space-y-3.5">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="px-2.5 py-0.5 rounded-md bg-[#123B73] text-white text-xs font-mono font-bold">
-                      Milestone {current.step}
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#D9A72E] font-mono">
-                      Phase: {current.phase}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
-                      <Clock className="w-3 h-3 text-[#D9A72E]" />
-                      <span>{current.duration}</span>
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-tight">
-                      {current.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-[#123B73] dark:text-sky-300 mt-0.5">
-                      "{current.tagline}"
-                    </p>
-                  </div>
-
-                  <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                    {current.shortDesc}
+          {/* CARD 02: INCUBATION */}
+          <div
+            className={`p-7 sm:p-8 rounded-2xl border flex flex-col justify-between transition-all duration-300 shadow-xs hover:shadow-md ${
+              isDark
+                ? 'bg-slate-900/90 border-slate-700/80 hover:border-slate-600 text-slate-100'
+                : 'bg-white border-[#DCE3EC] hover:border-slate-300 text-slate-900'
+            }`}
+          >
+            <div className="space-y-6">
+              <div className={`flex items-start justify-between gap-4 border-b pb-5 ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+                    INCUBATION
+                  </h3>
+                  <p className={`text-sm font-semibold mt-1 ${isDark ? 'text-[#38BDF8]' : 'text-[#123B73]'}`}>
+                    Convert to Startup
                   </p>
-
-                  {/* Output Banner */}
-                  <div className="p-3 rounded-xl border border-amber-200/70 dark:border-amber-900/40 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent text-xs flex items-center gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-[#D9A72E]/20 text-[#D9A72E] flex items-center justify-center shrink-0">
-                      <Target className="w-3.5 h-3.5" />
-                    </div>
-                    <div>
-                      <span className="font-bold text-[#946912] dark:text-[#E8BD56] uppercase text-[10px] tracking-wider block font-mono">
-                        Key Milestone Deliverable
-                      </span>
-                      <span className="text-slate-800 dark:text-slate-200 font-semibold">
-                        {current.outputMetric}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Previous / Next Navigation */}
-                  <div className="pt-2 flex items-center justify-between text-xs font-bold">
-                    <button
-                      type="button"
-                      onClick={handlePrev}
-                      className="inline-flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-[#123B73] dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                      <span>Previous Stage</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleNext}
-                      className="inline-flex items-center gap-1 text-[#123B73] dark:text-sky-300 hover:underline transition-colors cursor-pointer"
-                    >
-                      <span>Next Stage</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
                 </div>
-
-                {/* Right Area: Deliverable Checklist */}
-                <div className="lg:col-span-5 p-5 rounded-xl bg-[#F7F9FC] dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 space-y-2.5">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-                    <span>Verified Stage Gate Criteria</span>
-                    <Sparkles className="w-3.5 h-3.5 text-[#D9A72E]" />
-                  </div>
-
-                  <div className="space-y-2">
-                    {current.deliverables.map((item, dIdx) => (
-                      <div
-                        key={dIdx}
-                        className={`p-2.5 rounded-xl border flex items-start gap-2.5 transition-colors ${
-                          isDark ? 'bg-slate-900/60 border-slate-700/80' : 'bg-white border-slate-200'
-                        }`}
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-[#D9A72E] shrink-0 mt-0.5" />
-                        <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 leading-snug">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pt-2 text-[10px] font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between border-t border-slate-200 dark:border-slate-700">
-                    <span>AICTE-NISP Stage Gate</span>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">100% Policy Compliant</span>
-                  </div>
-                </div>
-
+                <span className="text-4xl sm:text-5xl font-black font-mono text-[#D9A826] select-none leading-none">
+                  02
+                </span>
               </div>
-            </div>
 
+              <ul className="space-y-2 pt-1">
+                {incubationPoints.map((point, idx) => {
+                  const Icon = point.icon;
+                  return (
+                    <li
+                      key={idx}
+                      className={`animated-bullet group flex items-start gap-4 p-2 rounded-xl transition-all duration-300 hover:translate-x-1.5 ${
+                        isDark ? 'hover:bg-slate-800/40' : 'hover:bg-slate-50'
+                      } ${
+                        isVisible
+                          ? 'opacity-100 translate-x-0'
+                          : 'opacity-0 -translate-x-4'
+                      }`}
+                      style={{
+                        transitionDelay: isVisible ? `${idx * 80 + 100}ms` : '0ms',
+                      }}
+                    >
+                      <div
+                        className={`bullet-badge w-10 h-10 shrink-0 rounded-lg rotate-45 flex items-center justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:rotate-[55deg] ${
+                          isDark
+                            ? 'bg-[#38BDF8] shadow-[0_0_12px_rgba(56,189,248,0.35)] group-hover:shadow-[0_0_18px_rgba(56,189,248,0.6)]'
+                            : 'bg-[#123B73] shadow-[0_0_12px_rgba(18,59,115,0.3)] group-hover:shadow-[0_0_18px_rgba(18,59,115,0.5)]'
+                        }`}
+                        aria-hidden="true"
+                      >
+                        <Icon
+                          className={`bullet-badge-icon w-5 h-5 -rotate-45 transition-transform duration-300 group-hover:-rotate-[55deg] stroke-[2.2] ${
+                            isDark ? 'text-[#0B1F3A]' : 'text-white'
+                          }`}
+                        />
+                      </div>
+                      <span className={`text-sm sm:text-base font-medium leading-relaxed pt-1.5 transition-colors duration-200 ${
+                        isDark ? 'text-slate-200 group-hover:text-white' : 'text-slate-700 group-hover:text-slate-950'
+                      }`}>
+                        {point.text}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* 2. INTERACTIVE ECOSYSTEM ELEMENTS (Founders · Mentorship · Resources · Infrastructure) */}
-        <div className="space-y-5 pt-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b pb-3 border-slate-200 dark:border-slate-800">
-            <div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#D9A72E]">
-                Comprehensive Venture Support
+        {/* PROFESSIONAL 5-STAGE VENTURE LIFECYCLE PATHWAY */}
+        <div
+          className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 ${
+            isDark
+              ? 'bg-slate-900/90 border-slate-700/80 shadow-md shadow-slate-950/40'
+              : 'bg-white border-[#DCE3EC] shadow-xs'
+          }`}
+        >
+          {/* Pathway Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-5 border-b border-slate-100 dark:border-slate-800">
+            <div className="space-y-1">
+              <span className="text-[11px] font-mono uppercase tracking-widest font-bold text-[#D9A826]">
+                Venture Lifecycle Pathway
               </span>
-              <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">
-                Interactive Incubation Ecosystem
+              <h3 className="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+                5-Stage Progressive Pathway
               </h3>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-              Click an ecosystem pillar to reveal tailored resources and frameworks
-            </p>
+            <div className="flex items-center gap-3 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#D9A826]" />
+                Stage 01: Pre-Incubation
+              </span>
+              <span className="text-slate-300 dark:text-slate-700">|</span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className={`w-2 h-2 rounded-full ${isDark ? 'bg-[#38BDF8]' : 'bg-[#123B73]'}`} />
+                Stage 02: Incubation
+              </span>
+            </div>
           </div>
 
-          {/* 4 Ecosystem Pillar Selector Tabs */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {ecosystemPillars.map((pillar) => {
-              const Icon = pillar.icon;
-              const isSelected = activeEcosystemPillar === pillar.id;
-
+          {/* 5 Pathway Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+            {progressSteps.map((step, idx) => {
+              const Icon = step.icon;
+              const isPreInc = step.color === 'gold';
+              const isBridge = step.color === 'navy';
+              
               return (
-                <button
-                  key={pillar.id}
-                  type="button"
-                  onClick={() => setActiveEcosystemPillar(pillar.id)}
-                  className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
-                    isSelected
-                      ? isDark
-                        ? 'bg-slate-800 border-sky-400 text-white shadow-md ring-2 ring-sky-400/40 -translate-y-1'
-                        : 'bg-white border-[#123B73] text-slate-900 shadow-md ring-2 ring-[#123B73]/30 -translate-y-1'
-                      : isDark
-                      ? 'bg-slate-900/80 border-slate-700 text-slate-200 hover:bg-slate-800'
-                      : 'bg-white border-[#DCE3EC] text-slate-800 hover:bg-slate-50'
+                <div
+                  key={idx}
+                  className={`step-card relative rounded-xl border p-4 sm:p-5 flex flex-col justify-between text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+                    isDark
+                      ? 'bg-slate-900 border-slate-800 hover:border-slate-700 text-slate-100'
+                      : 'bg-[#F7F9FC] border-[#DCE3EC] hover:border-slate-300 text-slate-900'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center ${pillar.bgColor} ${pillar.color}`}
-                    >
-                      <Icon className="w-4 h-4" />
+                  <div className="space-y-3">
+                    {/* Top Icon Badge */}
+                    <div className="flex justify-center">
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 shadow-xs ${
+                          isPreInc
+                            ? isDark
+                              ? 'bg-[#D9A826]/15 border border-[#D9A826]/40 text-[#D9A826]'
+                              : 'bg-amber-100/70 border border-amber-300/60 text-[#B45309]'
+                            : isBridge
+                            ? isDark
+                              ? 'bg-blue-600/20 border border-blue-500/40 text-blue-400'
+                              : 'bg-[#123B73]/10 border border-[#123B73]/30 text-[#123B73]'
+                            : isDark
+                            ? 'bg-sky-500/20 border border-sky-400/40 text-[#38BDF8]'
+                            : 'bg-sky-100/70 border border-sky-300/60 text-[#0284C7]'
+                        }`}
+                      >
+                        <Icon className="w-5 h-5 stroke-[2.2]" />
+                      </div>
                     </div>
-                    <span
-                      className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                        isSelected
-                          ? 'bg-[#123B73] text-white dark:bg-sky-400 dark:text-slate-950'
-                          : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
-                      }`}
-                    >
-                      {pillar.stat}
-                    </span>
-                  </div>
 
-                  <div>
-                    <h4 className="text-sm font-extrabold leading-snug">{pillar.label}</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
-                      {pillar.badge}
+                    {/* Step Number & Title */}
+                    <div>
+                      <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-slate-400 dark:text-slate-500 block mb-0.5">
+                        PHASE {step.step}
+                      </span>
+                      <h4 className="text-base font-extrabold text-slate-900 dark:text-white">
+                        {step.prefix}
+                      </h4>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                      {step.text}
                     </p>
                   </div>
-                </button>
+
+                  {/* Desktop connector arrow on edge */}
+                  {idx < progressSteps.length - 1 && (
+                    <div
+                      className="hidden md:flex absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full items-center justify-center bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xs pointer-events-none text-slate-400 dark:text-slate-500"
+                      aria-hidden="true"
+                    >
+                      <ArrowRight className="w-3 h-3" />
+                    </div>
+                  )}
+
+                  {/* Mobile downward connector */}
+                  {idx < progressSteps.length - 1 && (
+                    <div
+                      className="flex md:hidden justify-center pt-2 text-slate-400 dark:text-slate-500"
+                      aria-hidden="true"
+                    >
+                      <ArrowDown className="w-3.5 h-3.5" />
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
-
-          {/* Expanded Ecosystem Details Box */}
-          <div
-            className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${
-              isDark
-                ? 'bg-slate-900/90 border-slate-700 text-white'
-                : 'bg-white border-[#DCE3EC] text-slate-900 shadow-xs'
-            }`}
-          >
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
-              <div className="flex items-start gap-3.5">
-                <div
-                  className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 ${currentEcosystem.bgColor} ${currentEcosystem.color}`}
-                >
-                  <CurrentEcosystemIcon className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#D9A72E]">
-                      {currentEcosystem.badge}
-                    </span>
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                      {currentEcosystem.stat}
-                    </span>
-                  </div>
-                  <h4 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">
-                    {currentEcosystem.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-2xl">
-                    {currentEcosystem.desc}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar Key Support Pillars */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-4">
-              {currentEcosystem.points.map((pt, pIdx) => (
-                <div
-                  key={pIdx}
-                  className={`p-3.5 rounded-xl border flex items-start gap-2.5 transition-colors ${
-                    isDark ? 'bg-slate-800/60 border-slate-700/80' : 'bg-slate-50 border-slate-200'
-                  }`}
-                >
-                  <Check className="w-4 h-4 text-[#D9A72E] shrink-0 mt-0.5" />
-                  <span className="text-xs font-medium text-slate-800 dark:text-slate-200 leading-relaxed">
-                    {pt}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
-
       </div>
     </section>
   );

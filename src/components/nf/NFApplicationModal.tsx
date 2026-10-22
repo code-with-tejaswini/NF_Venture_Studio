@@ -61,7 +61,7 @@ export const NFApplicationModal: React.FC<NFApplicationModalProps> = ({
               Apply to NF Venture Studio
             </h2>
             <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
-              Naree Care Foundation Initiative · Pune, Maharashtra
+              Naree Foundation Initiative · Pune, Maharashtra
             </p>
           </div>
 

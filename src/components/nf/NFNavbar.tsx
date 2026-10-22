@@ -168,16 +168,16 @@ export const NFNavbar: React.FC<NFNavbarProps> = ({
 
             {/* Helpline Phone */}
             <a
-              href="tel:8379879846"
+              href="tel:+919209112577"
               className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border hover:-translate-y-0.5 active:translate-y-0 ${
                 isDark
                   ? 'text-slate-200 border-slate-700 bg-slate-900 hover:text-white hover:border-slate-600'
                   : 'text-[#172334] border-[#DCE3EC] bg-white hover:text-[#123B73] hover:border-slate-300 hover:shadow-xs'
               }`}
-              title="Helpline: 8379879846"
+              title="Helpline: +91 92091 12577"
             >
               <Phone className="w-3.5 h-3.5 text-[#D9A72E]" />
-              <span>8379879846</span>
+              <span>+91 92091 12577</span>
             </a>
 
             {/* Single Prominent Primary CTA (Solid Pill) */}
@@ -288,10 +288,10 @@ export const NFNavbar: React.FC<NFNavbarProps> = ({
             )}
 
             <a
-              href="tel:8379879846"
+              href="tel:+919209112577"
               className="w-full text-center py-2 text-xs font-semibold rounded-xl border border-[#DCE3EC] dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
             >
-              Helpline: 8379879846
+              Helpline: +91 92091 12577
             </a>
             <button
               type="button"

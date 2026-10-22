@@ -32,7 +32,7 @@ export const NFFooter: React.FC<NFFooterProps> = ({
   const navigate = useNavigate();
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('8379879846');
+    navigator.clipboard.writeText('+91 92091 12577');
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -85,7 +85,7 @@ export const NFFooter: React.FC<NFFooterProps> = ({
             </div>
 
             <div className="inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full border border-[#DCE3EC] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              Naree Care Foundation Initiative
+              Naree Foundation Initiative
             </div>
 
             <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
@@ -236,10 +236,10 @@ export const NFFooter: React.FC<NFFooterProps> = ({
                   </span>
                   <div className="flex items-center gap-2 mt-0.5">
                     <a
-                      href="tel:8379879846"
+                      href="tel:+919209112577"
                       className="font-semibold text-slate-900 dark:text-white hover:underline"
                     >
-                      8379879846
+                      +91 92091 12577
                     </a>
                     <button
                       type="button"
@@ -267,10 +267,10 @@ export const NFFooter: React.FC<NFFooterProps> = ({
                     Office of the CEO
                   </span>
                   <a
-                    href="mailto:ceo@ncfvs.in"
+                    href="mailto:ceo@nfvs.in"
                     className="font-medium text-[#123B73] dark:text-sky-400 hover:underline block mt-0.5"
                   >
-                    ceo@ncfvs.in
+                    ceo@nfvs.in
                   </a>
                 </div>
               </div>
@@ -297,12 +297,12 @@ export const NFFooter: React.FC<NFFooterProps> = ({
         {/* Bottom Bar */}
         <div className="border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 text-center sm:text-left">
           <div>
-            © {new Date().getFullYear()} <strong className="text-slate-800 dark:text-slate-200">NF Venture Studio</strong> · A Naree Care Foundation Initiative. All rights reserved.
+            © {new Date().getFullYear()} <strong className="text-slate-800 dark:text-slate-200">NF Venture Studio</strong> · A Naree Foundation Initiative. All rights reserved.
           </div>
 
           <div className="flex items-center gap-3 flex-wrap justify-center">
             <a
-              href="https://wa.me/918379879846"
+              href="https://wa.me/919209112577"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#DCE3EC] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-600 transition-colors"
@@ -312,13 +312,13 @@ export const NFFooter: React.FC<NFFooterProps> = ({
             </a>
 
             <a
-              href="https://www.ncfvs.in"
+              href="https://www.nfvs.in"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#DCE3EC] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-[#123B73] transition-colors"
             >
               <Globe className="w-3.5 h-3.5 text-[#123B73] dark:text-sky-400" />
-              <span>www.ncfvs.in</span>
+              <span>www.nfvs.in</span>
             </a>
           </div>
         </div>

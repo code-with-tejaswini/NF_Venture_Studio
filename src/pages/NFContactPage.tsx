@@ -54,13 +54,13 @@ export const NFContactPage: React.FC = () => {
   };
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('8379879846');
+    navigator.clipboard.writeText('+91 92091 12577');
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('contact@ncfvs.in');
+    navigator.clipboard.writeText('contact@nfvs.in');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
@@ -94,7 +94,7 @@ export const NFContactPage: React.FC = () => {
               Start Your <span className="text-[#D9A72E]">Innovation Journey</span>
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-relaxed max-w-2xl mx-auto text-justify">
+            <p className="mt-4 text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-relaxed max-w-2xl mx-auto">
               Partner with NF Venture Studio to establish turnkey campus incubation centers, commercialize deep-tech intellectual property, or accelerate your startup venture.
             </p>
 
@@ -135,7 +135,7 @@ export const NFContactPage: React.FC = () => {
                       NF Venture Studio
                     </h2>
                     <p className="text-xs text-slate-700 dark:text-slate-300 font-medium mt-0.5">
-                      A Naree Care Foundation Initiative
+                      A Naree Foundation Initiative
                     </p>
                   </div>
 
@@ -152,10 +152,10 @@ export const NFContactPage: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                         <a
-                          href="tel:8379879846"
+                          href="tel:+919209112577"
                           className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:underline"
                         >
-                          +91 8379879846
+                          +91 92091 12577
                         </a>
                         <button
                           type="button"
@@ -180,10 +180,10 @@ export const NFContactPage: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                         <a
-                          href="mailto:contact@ncfvs.in"
+                          href="mailto:contact@nfvs.in"
                           className="text-xs sm:text-sm font-bold text-[#123B73] dark:text-sky-400 hover:underline"
                         >
-                          contact@ncfvs.in
+                          contact@nfvs.in
                         </a>
                         <button
                           type="button"
@@ -196,10 +196,10 @@ export const NFContactPage: React.FC = () => {
                       </div>
                       <div className="mt-1">
                         <a
-                          href="mailto:ceo@ncfvs.in"
+                          href="mailto:ceo@nfvs.in"
                           className="text-xs font-medium text-slate-700 dark:text-slate-300 hover:underline"
                         >
-                          ceo@ncfvs.in (Office of the CEO)
+                          ceo@nfvs.in (Office of the CEO)
                         </a>
                       </div>
                     </div>
@@ -214,7 +214,7 @@ export const NFContactPage: React.FC = () => {
                       <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
                         Venture Studio Headquarters
                       </div>
-                      <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white mt-0.5 text-justify">
+                      <p className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white mt-0.5">
                         Parijatak, Near Nigdi Police Station, Nigdi, Pune – 411044, Maharashtra
                       </p>
                     </div>
@@ -268,8 +268,8 @@ export const NFContactPage: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                         <Mail className="w-3.5 h-3.5 text-[#D9A72E] shrink-0" />
-                        <a href="mailto:contact@ncfvs.in" className="hover:underline">
-                          contact@ncfvs.in
+                        <a href="mailto:contact@nfvs.in" className="hover:underline">
+                          contact@nfvs.in
                         </a>
                       </div>
                     </div>
@@ -284,8 +284,8 @@ export const NFContactPage: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                         <Mail className="w-3.5 h-3.5 text-[#D9A72E] shrink-0" />
-                        <a href="mailto:contact@ncfvs.in" className="hover:underline">
-                          contact@ncfvs.in
+                        <a href="mailto:contact@nfvs.in" className="hover:underline">
+                          contact@nfvs.in
                         </a>
                       </div>
                     </div>
@@ -300,8 +300,8 @@ export const NFContactPage: React.FC = () => {
                       </div>
                       <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                         <Mail className="w-3.5 h-3.5 text-[#D9A72E] shrink-0" />
-                        <a href="mailto:ceo@ncfvs.in" className="hover:underline">
-                          ceo@ncfvs.in
+                        <a href="mailto:ceo@nfvs.in" className="hover:underline">
+                          ceo@nfvs.in
                         </a>
                       </div>
                     </div>
@@ -328,19 +328,19 @@ export const NFContactPage: React.FC = () => {
                     <span className="w-5 h-5 rounded-full bg-[#EAF1F9] dark:bg-slate-800 text-[#123B73] dark:text-sky-400 flex items-center justify-center shrink-0 font-bold text-[11px]">
                       1
                     </span>
-                    <span className="text-justify font-medium text-slate-800 dark:text-slate-200">Submit your application form with basic project or institution details.</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-200">Submit your application form with basic project or institution details.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <span className="w-5 h-5 rounded-full bg-[#EAF1F9] dark:bg-slate-800 text-[#123B73] dark:text-sky-400 flex items-center justify-center shrink-0 font-bold text-[11px]">
                       2
                     </span>
-                    <span className="text-justify font-medium text-slate-800 dark:text-slate-200">Our review committee evaluates your proposal within 48 business hours.</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-200">Our review committee evaluates your proposal within 48 business hours.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <span className="w-5 h-5 rounded-full bg-[#EAF1F9] dark:bg-slate-800 text-[#123B73] dark:text-sky-400 flex items-center justify-center shrink-0 font-bold text-[11px]">
                       3
                     </span>
-                    <span className="text-justify font-medium text-slate-800 dark:text-slate-200">Direct discovery meeting scheduled for onboarding and lab resource allocation.</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-200">Direct discovery meeting scheduled for onboarding and lab resource allocation.</span>
                   </li>
                 </ul>
               </div>

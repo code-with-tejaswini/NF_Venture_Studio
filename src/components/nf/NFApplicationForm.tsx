@@ -210,7 +210,7 @@ export const NFApplicationForm: React.FC<NFApplicationFormProps> = ({
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
             Application Received Successfully
           </h3>
-          <p className="max-w-md mx-auto text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200 text-justify">
+          <p className="max-w-md mx-auto text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200">
             Thank you for applying to NF Venture Studio. Your application has been logged with our incubation desk. Our team will review your submission and connect with you within 48 hours.
           </p>
         </div>
@@ -240,7 +240,7 @@ export const NFApplicationForm: React.FC<NFApplicationFormProps> = ({
           <p><span className="font-semibold text-slate-900 dark:text-white">Track:</span> {tracks.find((t) => t.id === selectedTrack)?.name}</p>
           <p className="pt-1 text-[11px] text-slate-700 dark:text-slate-300 flex items-center gap-1.5 border-t border-dashed border-slate-200 dark:border-slate-700">
             <Mail className="w-3 h-3 text-[#D9A72E]" />
-            <span>Incubation Desk: <strong className="text-slate-900 dark:text-slate-100">contact@ncfvs.in</strong></span>
+            <span>Incubation Desk: <strong className="text-slate-900 dark:text-slate-100">contact@nfvs.in</strong></span>
           </p>
         </div>
 
@@ -303,7 +303,7 @@ export const NFApplicationForm: React.FC<NFApplicationFormProps> = ({
 
           <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-rose-200 dark:border-rose-900/60">
             <a
-              href={`mailto:contact@ncfvs.in?subject=${encodeURIComponent(
+              href={`mailto:contact@nfvs.in?subject=${encodeURIComponent(
                 `[NF Venture Studio Incubation Application] - ${formData.fullName || 'Innovator'}`
               )}&body=${encodeURIComponent(
                 `Track: ${tracks.find((t) => t.id === selectedTrack)?.name}\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nOrganization: ${formData.institution}\nTechnology Domain: ${formData.domain}\nCurrent Stage: ${formData.stage}\n\nProject Overview:\n${formData.description}`
@@ -311,14 +311,14 @@ export const NFApplicationForm: React.FC<NFApplicationFormProps> = ({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-semibold transition-colors shadow-xs"
             >
               <Mail className="w-3.5 h-3.5" />
-              <span>Email Proposal Directly to contact@ncfvs.in</span>
+              <span>Email Proposal Directly to contact@nfvs.in</span>
             </a>
             <a
-              href="tel:8379879846"
+              href="tel:+919209112577"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-rose-300 dark:border-rose-800 bg-white dark:bg-slate-900 text-rose-900 dark:text-rose-200 font-semibold hover:bg-rose-100 dark:hover:bg-slate-800 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-rose-600" />
-              <span>Call Helpline: +91 8379879846</span>
+              <span>Call Helpline: +91 92091 12577</span>
             </a>
           </div>
         </div>
@@ -578,7 +578,7 @@ export const NFApplicationForm: React.FC<NFApplicationFormProps> = ({
         }`}
       >
         <div className="text-xs text-slate-700 dark:text-slate-300 text-center sm:text-left font-medium">
-          Direct Incubation Helpline: <a href="tel:8379879846" className="font-bold text-[#123B73] dark:text-sky-300 hover:underline">8379879846</a>
+          Direct Incubation Helpline: <a href="tel:+919209112577" className="font-bold text-[#123B73] dark:text-sky-300 hover:underline">+91 92091 12577</a>
         </div>
         <div className="flex items-center gap-2.5 w-full sm:w-auto">
           {isModal && onCancel && (

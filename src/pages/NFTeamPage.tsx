@@ -24,9 +24,12 @@ import {
   Sparkles,
   MapPin,
 } from 'lucide-react';
-import ashokPatilImg from '../../assets/ashok patil.jpg';
+import ashokPatilImg from '../../assets/ashok_patil_desk.png';
 import nileshSirImg from '../../assets/nilesh_sir.jpeg';
+import presidentSignatureImg from '../../assets/president_signature.png';
 import vicePresidentImg from '../../assets/voice_president.jpeg';
+import vicePresidentSignatureImg from '../../assets/vice_president_signature.png';
+import ceoSignatureImg from '../../assets/ceo_signature.png';
 import pallaviShirkeImg from '../../assets/pallavi shrike.png';
 import mohammadAshparazImg from '../../assets/Mohammed Ashparaz.png';
 import sayaliKaleImg from '../../assets/sayali kale.jpeg';
@@ -361,10 +364,10 @@ export const NFTeamPage: React.FC = () => {
                             <div className="flex items-center gap-1.5 justify-center sm:justify-start">
                               <Mail className="w-3.5 h-3.5 text-[#D9A72E] shrink-0" />
                               <a
-                                href="mailto:contact@ncfvs.in"
+                                href="mailto:contact@nfvs.in"
                                 className="hover:underline text-[#123B73] dark:text-sky-300 font-medium"
                               >
-                                contact@ncfvs.in
+                                contact@nfvs.in
                               </a>
                             </div>
                           </div>
@@ -398,15 +401,27 @@ export const NFTeamPage: React.FC = () => {
 
                       {/* Sign-off */}
                       <div className="flex justify-center sm:justify-end pt-5 border-t border-slate-200 dark:border-slate-800">
-                        <div className="text-center sm:text-right space-y-0.5">
-                          <div className="text-sm font-bold text-[#123B73] dark:text-white">
-                            Dr. Nilesh Gaikwad
+                        <div className="flex flex-col items-center sm:items-end space-y-1">
+                          {/* President Signature */}
+                          <div className="h-14 sm:h-16 flex items-center justify-center sm:justify-end">
+                            <img
+                              src={presidentSignatureImg}
+                              alt="Dr. Nilesh Gaikwad - President Signature"
+                              className="h-full w-auto object-contain dark:brightness-0 dark:invert opacity-95 transition-all select-none"
+                              loading="eager"
+                            />
                           </div>
-                          <div className="text-xs font-semibold text-[#D9A72E]">
-                            President
-                          </div>
-                          <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                            NF Venture Studio · Pune
+
+                          <div className="text-center sm:text-right space-y-0.5">
+                            <div className="text-sm font-bold text-[#123B73] dark:text-white tracking-tight">
+                              Dr. Nilesh Gaikwad
+                            </div>
+                            <div className="text-xs font-semibold text-[#D9A72E]">
+                              President
+                            </div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                              Naree Foundation · NF Venture Studio
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -422,7 +437,7 @@ export const NFTeamPage: React.FC = () => {
                         <div className="w-24 sm:w-28 md:w-32 aspect-[3/4] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 shadow-xs shrink-0 mx-auto sm:mx-0">
                           <img
                             src={vicePresidentImg}
-                            alt="Ms. Nisha Gaikwad - Vice President, NF Venture Studio"
+                            alt="Prof. Nisha Gaikwad - Vice President, NF Venture Studio"
                             className="w-full h-full object-cover object-[center_20%] block select-none"
                             loading="eager"
                             decoding="async"
@@ -435,7 +450,7 @@ export const NFTeamPage: React.FC = () => {
                             <span>Office of the Vice President</span>
                           </div>
                           <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#123B73] dark:text-white tracking-tight leading-tight">
-                            Ms. Nisha Gaikwad
+                            Prof. Nisha Gaikwad
                           </h1>
                           <p className="text-xs sm:text-sm font-bold text-[#D9A72E]">
                             Vice President, NF Venture Studio
@@ -450,10 +465,10 @@ export const NFTeamPage: React.FC = () => {
                             <div className="flex items-center gap-1.5 justify-center sm:justify-start">
                               <Mail className="w-3.5 h-3.5 text-[#D9A72E] shrink-0" />
                               <a
-                                href="mailto:contact@ncfvs.in"
+                                href="mailto:contact@nfvs.in"
                                 className="hover:underline text-[#123B73] dark:text-sky-300 font-medium"
                               >
-                                contact@ncfvs.in
+                                contact@nfvs.in
                               </a>
                             </div>
                           </div>
@@ -487,15 +502,27 @@ export const NFTeamPage: React.FC = () => {
 
                       {/* Sign-off */}
                       <div className="flex justify-center sm:justify-end pt-5 border-t border-slate-200 dark:border-slate-800">
-                        <div className="text-center sm:text-right space-y-0.5">
-                          <div className="text-sm font-bold text-[#123B73] dark:text-white">
-                            Ms. Nisha Gaikwad
+                        <div className="flex flex-col items-center sm:items-end space-y-1">
+                          {/* Vice President Signature */}
+                          <div className="h-14 sm:h-16 flex items-center justify-center sm:justify-end">
+                            <img
+                              src={vicePresidentSignatureImg}
+                              alt="Prof. Nisha Gaikwad - Vice President Signature"
+                              className="h-full w-auto object-contain dark:brightness-0 dark:invert opacity-95 transition-all select-none"
+                              loading="eager"
+                            />
                           </div>
-                          <div className="text-xs font-semibold text-[#D9A72E]">
-                            Vice President
-                          </div>
-                          <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                            NF Venture Studio · Pune
+
+                          <div className="text-center sm:text-right space-y-0.5">
+                            <div className="text-sm font-bold text-[#123B73] dark:text-white tracking-tight">
+                              Prof. Nisha Gaikwad
+                            </div>
+                            <div className="text-xs font-semibold text-[#D9A72E]">
+                              Vice President
+                            </div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                              Naree Foundation · NF Venture Studio
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -539,10 +566,10 @@ export const NFTeamPage: React.FC = () => {
                             <div className="flex items-center gap-1.5 justify-center sm:justify-start">
                               <Mail className="w-3.5 h-3.5 text-[#D9A72E] shrink-0" />
                               <a
-                                href="mailto:ceo@ncfvs.in"
+                                href="mailto:ceo@nfvs.in"
                                 className="hover:underline text-[#123B73] dark:text-sky-300 font-medium"
                               >
-                                ceo@ncfvs.in
+                                ceo@nfvs.in
                               </a>
                             </div>
                           </div>
@@ -574,24 +601,29 @@ export const NFTeamPage: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Sign-off with Small and Discreet Digital Signature Below the Name */}
+                      {/* Sign-off */}
                       <div className="flex justify-center sm:justify-end pt-5 border-t border-slate-200 dark:border-slate-800">
-                        <div className="text-center sm:text-right space-y-0.5">
-                          <div className="text-sm font-bold text-[#123B73] dark:text-white">
-                            Mr. Ashok K. Patil
+                        <div className="flex flex-col items-center sm:items-end space-y-1">
+                          {/* CEO Signature */}
+                          <div className="h-14 sm:h-16 flex items-center justify-center sm:justify-end">
+                            <img
+                              src={ceoSignatureImg}
+                              alt="Mr. Ashok Patil - CEO Signature"
+                              className="h-full w-auto object-contain dark:brightness-0 dark:invert opacity-95 transition-all select-none"
+                              loading="eager"
+                            />
                           </div>
-                          {/* Small and discreet digital signature below the name */}
-                          <div
-                            style={{ fontFamily: "'Caveat', 'Brush Script MT', cursive" }}
-                            className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-medium select-none tracking-wider italic leading-none py-0.5"
-                          >
-                            Ashok Patil
-                          </div>
-                          <div className="text-xs font-semibold text-[#D9A72E]">
-                            Chief Executive Officer (CEO)
-                          </div>
-                          <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                            NF Venture Studio · Pune
+
+                          <div className="text-center sm:text-right space-y-0.5">
+                            <div className="text-sm font-bold text-[#123B73] dark:text-white tracking-tight">
+                              Mr. Ashok Patil
+                            </div>
+                            <div className="text-xs font-semibold text-[#D9A72E]">
+                              Chief Executive Officer (CEO)
+                            </div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                              Naree Foundation · NF Venture Studio
+                            </div>
                           </div>
                         </div>
                       </div>

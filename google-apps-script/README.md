@@ -1,6 +1,6 @@
 # NF Venture Studio — Incubation Application Script & Email Notifications
 
-This directory contains the production-ready Google Apps Script (`Code.gs`) that powers the incubation application submission workflow for **NF Venture Studio (Naree Care Foundation)**.
+This directory contains the production-ready Google Apps Script (`Code.gs`) that powers the incubation application submission workflow for **NF Venture Studio (Naree Foundation)**.
 
 ---
 

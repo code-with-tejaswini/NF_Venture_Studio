@@ -148,13 +148,13 @@ export const NotFoundPage: React.FC = () => {
               Need assistance finding what you were looking for?
             </span>
             <div className="flex items-center gap-4 shrink-0 font-semibold">
-              <a href="tel:8379879846" className="flex items-center gap-1.5 text-[#123B73] dark:text-sky-300 hover:underline">
+              <a href="tel:+919209112577" className="flex items-center gap-1.5 text-[#123B73] dark:text-sky-300 hover:underline">
                 <Phone className="w-3.5 h-3.5 text-[#D9A72E]" />
-                <span>+91 8379879846</span>
+                <span>+91 92091 12577</span>
               </a>
-              <a href="mailto:contact@ncfvs.in" className="flex items-center gap-1.5 text-[#123B73] dark:text-sky-300 hover:underline">
+              <a href="mailto:contact@nfvs.in" className="flex items-center gap-1.5 text-[#123B73] dark:text-sky-300 hover:underline">
                 <Mail className="w-3.5 h-3.5 text-[#D9A72E]" />
-                <span>contact@ncfvs.in</span>
+                <span>contact@nfvs.in</span>
               </a>
             </div>
           </div>

@@ -8,19 +8,12 @@ import {
   Lightbulb,
   Sparkles,
   Target,
-  Rocket,
-  Building2,
   ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
   TrendingUp,
-  Eye,
-  Flag,
-  Award,
   Users,
-  Compass,
   Check,
   ChevronRight,
+  Telescope,
 } from 'lucide-react';
 import ventureStudioHub from '../assets/venture_studio_hub.jpg';
 import { useNFTheme } from '../hooks/useNFTheme';
@@ -31,7 +24,6 @@ export const NFAboutPage: React.FC = () => {
   const [isAppModalOpen, setIsAppModalOpen] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState('student');
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [activeMilestone, setActiveMilestone] = useState(4);
 
   useScrollReveal();
 
@@ -88,44 +80,7 @@ export const NFAboutPage: React.FC = () => {
     },
   ];
 
-  // 5-Year Institutional Evolution (Unique historical roadmap)
-  const milestones = [
-    {
-      year: '2022',
-      title: 'Genesis & Ecosystem Vision',
-      badge: 'Genesis',
-      desc: 'Naree Care Foundation conceptualizes turnkey higher-education venture incubation, bridging university engineering labs, student talent, and enterprise creation.',
-      tags: ['Vision Paper', 'University Consultations', 'Core Advisory'],
-    },
-    {
-      year: '2023',
-      title: 'Incubation Governance & IP Charters',
-      badge: 'Governance',
-      desc: 'Framing standard operating procedures, AICTE-NISP compliant IP charters, faculty spin-off governance, and student founder equity models.',
-      tags: ['AICTE-NISP Alignment', 'Governance SOPs', 'Legal Framework'],
-    },
-    {
-      year: '2024',
-      title: 'Prototyping Labs & Turnkey Architecture',
-      badge: 'Infrastructure',
-      desc: 'Establishing on-campus technology hubs across AI, IoT, robotics, and embedded electronics with direct maker equipment test-benches.',
-      tags: ['4 Tech Labs', 'Makerspace Deployments', 'Pilot Cohorts'],
-    },
-    {
-      year: '2025',
-      title: 'Multi-Campus University Network',
-      badge: 'Expansion',
-      desc: 'Expanding across premier engineering colleges and universities in Maharashtra, synchronizing with annual MoE-IIC activity calendars.',
-      tags: ['MoE-IIC Synchronization', '50+ CXO Mentors', 'Accreditation Packs'],
-    },
-    {
-      year: '2026',
-      title: 'Scale & Venture Capital Syndication',
-      badge: 'Current Phase',
-      desc: 'Institutional venture studio scaling: driving commercial spin-offs, non-dilutive central grant linkages (NIDHI/BIRAC), and angel syndicates.',
-      tags: ['Grant Facilitation', 'Corporate Pilots', 'Venture Syndication'],
-    },
-  ];
+
 
   return (
     <div
@@ -205,63 +160,47 @@ export const NFAboutPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 2: Vision & Mission Dual Pillars (Unique Core Statements) */}
+          {/* Section 2: Vision & Mission Dual Pillars (Exact Reference Statements) */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {/* Vision */}
             <div
-              className={`p-6 sm:p-8 rounded-2xl border flex flex-col justify-between transition-all duration-200 shadow-xs ${
+              className={`p-6 sm:p-8 rounded-2xl border flex flex-col transition-all duration-200 shadow-xs ${
                 isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-[#DCE3EC] text-slate-900'
               }`}
             >
               <div className="space-y-3.5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-[#EAF1F9] dark:bg-slate-800 flex items-center justify-center text-[#123B73] dark:text-sky-400">
-                    <Eye className="w-5 h-5 text-[#D9A72E]" />
+                    <Telescope className="w-5 h-5 text-[#D9A72E]" />
                   </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase font-bold tracking-wider text-[#D9A72E]">
-                      Guiding Compass
-                    </span>
-                    <h2 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
-                      Our Vision
-                    </h2>
-                  </div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+                    Our Vision
+                  </h2>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-                  To build an accessible, collaborative, and sustainable startup ecosystem across India that enables student creators, academic researchers, and grassroots innovators to transform laboratory discoveries into scalable, high-impact commercial enterprises.
+                  To build an accessible, collaborative and sustainable startup ecosystem that enables innovators and entrepreneurs to transform ideas into impactful ventures.
                 </p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400 font-semibold">
-                Accessible · Collaborative · Sustainable
               </div>
             </div>
 
             {/* Mission */}
             <div
-              className={`p-6 sm:p-8 rounded-2xl border flex flex-col justify-between transition-all duration-200 shadow-xs ${
+              className={`p-6 sm:p-8 rounded-2xl border flex flex-col transition-all duration-200 shadow-xs ${
                 isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-[#DCE3EC] text-slate-900'
               }`}
             >
               <div className="space-y-3.5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-[#EAF1F9] dark:bg-slate-800 flex items-center justify-center text-[#123B73] dark:text-sky-400">
-                    <Flag className="w-5 h-5 text-[#D9A72E]" />
+                    <Target className="w-5 h-5 text-[#D9A72E]" />
                   </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase font-bold tracking-wider text-[#D9A72E]">
-                      Strategic Purpose
-                    </span>
-                    <h2 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
-                      Our Mission
-                    </h2>
-                  </div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+                    Our Mission
+                  </h2>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-                  To systematically connect academic research, entrepreneurial talent, and capital resources through structured incubation governance, statutory IP protection, operator mentorship, and industry-grade prototyping infrastructure.
+                  To connect academic innovation, entrepreneurial startup industry expertise and business resources through structured incubation and startup support.
                 </p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400 font-semibold">
-                Connect · Structure · Support · Commercialize
               </div>
             </div>
           </section>
@@ -324,108 +263,7 @@ export const NFAboutPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 4: Visual Evolution & Milestones Roadmap (Unique 5-Year History) */}
-          <section className="space-y-6">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b pb-5 border-slate-200 dark:border-slate-800">
-              <div className="max-w-2xl space-y-1.5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border bg-[#EAF1F9] dark:bg-slate-800 text-[#123B73] dark:text-sky-300 border-[#DCE3EC] dark:border-slate-700">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9A72E]" />
-                  <span className="uppercase tracking-wider font-bold">Institutional Evolution</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-                  Our Journey: <span className="text-[#D9A72E]">2022 to 2026</span>
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                  A disciplined, milestone-driven expansion bridging academia and commercial venture building.
-                </p>
-              </div>
-            </div>
-
-            {/* Stepper Timeline Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {milestones.map((m, idx) => {
-                const isSelected = activeMilestone === idx;
-                return (
-                  <button
-                    key={m.year}
-                    type="button"
-                    onClick={() => setActiveMilestone(idx)}
-                    className={`p-3.5 sm:p-4 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                      isSelected
-                        ? isDark
-                          ? 'bg-slate-850 border-[#D9A72E] shadow-md ring-1 ring-[#D9A72E]/50 -translate-y-0.5'
-                          : 'bg-white border-[#123B73] shadow-md ring-1 ring-[#123B73]/30 -translate-y-0.5'
-                        : isDark
-                          ? 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400'
-                          : 'bg-[#F7F9FC] border-[#DCE3EC] hover:border-slate-300 text-slate-600'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className={`text-base font-black font-mono ${
-                        isSelected ? 'text-[#D9A72E]' : 'text-slate-500 dark:text-slate-400'
-                      }`}>
-                        {m.year}
-                      </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full uppercase tracking-wider font-bold bg-[#EAF1F9] dark:bg-slate-800 text-[#123B73] dark:text-sky-300">
-                        {m.badge}
-                      </span>
-                    </div>
-                    <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                      {m.title}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Milestone Card */}
-            <div
-              className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 ${
-                isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-[#DCE3EC] shadow-2xs'
-              }`}
-            >
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div className="space-y-3 max-w-3xl">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl font-black font-mono text-[#D9A72E]">
-                      {milestones[activeMilestone].year}
-                    </span>
-                    <span className="h-4 w-px bg-slate-300 dark:bg-slate-700" />
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                      {milestones[activeMilestone].title}
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-                    {milestones[activeMilestone].desc}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 pt-1">
-                    {milestones[activeMilestone].tags.map((t, tidx) => (
-                      <span
-                        key={tidx}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold border border-slate-200 dark:border-slate-700 bg-[#F7F9FC] dark:bg-slate-800 text-slate-700 dark:text-slate-200"
-                      >
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                        <span>{t}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenApplication('institutional')}
-                    className="w-full sm:w-auto px-5 py-3 rounded-xl text-xs font-bold text-white bg-[#123B73] hover:bg-[#0B1F3A] transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <span>Partner with NF Venture Studio</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A72E]" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 5: Leadership & Institutional Governance Teaser */}
+          {/* Section 4: Leadership & Institutional Governance Teaser */}
           <section
             className={`p-6 sm:p-8 rounded-2xl border transition-colors ${
               isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-[#EAF1F9]/70 border-[#DCE3EC]'

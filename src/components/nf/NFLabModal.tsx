@@ -164,7 +164,7 @@ export const NFLabModal: React.FC<NFLabModalProps> = ({
 
         {/* Modal Content */}
         <div className="p-5 sm:p-6 overflow-y-auto space-y-4 flex-1">
-          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed text-justify">
+          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed">
             {current.description}
           </p>
 
@@ -184,7 +184,7 @@ export const NFLabModal: React.FC<NFLabModalProps> = ({
 
           <div className="p-3.5 rounded-xl border border-[#DCE3EC] dark:border-slate-700 bg-[#F7F9FC] dark:bg-slate-800/90 text-xs">
             <span className="font-bold text-slate-900 dark:text-white">Primary Deliverable: </span>
-            <span className="text-slate-800 dark:text-slate-200 text-justify font-medium">{current.deliverables}</span>
+            <span className="text-slate-800 dark:text-slate-200 font-medium">{current.deliverables}</span>
           </div>
         </div>
 
